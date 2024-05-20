@@ -8,14 +8,17 @@
   padding: 0;
 }
 
+
 .nav-elements {
   font-size: 1.5rem;
+  color: aliceblue;
   margin: 0 1rem;
 }
 
 @media not all and (min-width: 800px) {
   .nav-elements {
     font-size: 1rem;
+    font-weight: 700;
     padding: 0 0.4rem;
   }
 }
