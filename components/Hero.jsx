@@ -1,15 +1,16 @@
-"use client"
-import { useState } from "react";
+// "use client"
+// import { useState } from "react";
 import { FaArrowDown } from "react-icons/fa";
 
 
 export default function Hero() {
-  const [width, setWidth] = useState(window.innerWidth);
+  // const [width, setWidth] = useState(window.innerWidth);
 
-  console.log(width);
+
   return (
     <main className="w-full h-[100dvh]">
-      <img src={`${width < 480 ? '/socotra11.jpg' : '/socotra16.jpg'}`} className="brightness-50 w-full h-[100vh] top-0 left-0 right-0 absolute bottom-0" alt="" />
+      <img src='/socotra16.jpg' className="brightness-50 w-full h-[80vh] top-0 left-0 right-0 absolute bottom-0" alt="" />
+      {/* <img src={`${width < 480 ? '/socotra11.jpg' : '/socotra16.jpg'}`} className="brightness-50 w-full h-[100vh] top-0 left-0 right-0 absolute bottom-0" alt="" /> */}
 
 
       <div className="w-full h-[100vh] max-sm:flex-col flex items-center justify-center">
