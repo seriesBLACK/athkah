@@ -1,7 +1,6 @@
 "use client"
 
 import { Alert, Button, FileInput, Select, TextInput } from 'flowbite-react';
-import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import {
   getDownloadURL,
@@ -9,22 +8,42 @@ import {
   ref,
   uploadBytesResumable,
 } from 'firebase/storage';
-import { app } from '../../firebase';
+import { app, db } from '../../firebase';
 import { useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-
-// import { useNavigate } from 'react-router-dom';
+import { addDoc, collection } from 'firebase/firestore';
+import { useRouter } from 'next/navigation'
 
 export default function CreatePost() {
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState(null)
   const [imageUploadProgress, setImageUploadProgress] = useState(null);
   const [imageUploadError, setImageUploadError] = useState(null);
-  const [formData, setFormData] = useState({});
-  const [publishError, setPublishError] = useState(null);
+  const [loading, setloading] = useState(null);
+  const [formData, setFormData] = useState({
+    country: '',
+    city: '',
+    catogery: '',
+    description: '',
+  });
+  const router = useRouter();
 
 
-  // const navigate = useNavigate();
+  function onChange(e) {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }));
+
+  };
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setloading(true);
+    await addDoc(collection(db, "offers"), formData);
+    setloading(false);
+    router.push('/')
+  };
 
   const handleUpdloadImage = async () => {
     try {
@@ -34,7 +53,7 @@ export default function CreatePost() {
       }
       setImageUploadError(null);
       const storage = getStorage(app);
-      const fileName = new Date().getTime() + '-' + file.name;
+      const fileName = new Date().getTime() + '-' + formData.country;
       const storageRef = ref(storage, fileName);
       const uploadTask = uploadBytesResumable(storageRef, file);
       uploadTask.on(
@@ -77,31 +96,26 @@ export default function CreatePost() {
             type='text'
             placeholder='Country or city name'
             required
-            id='title'
+            id='country'
             className=' border'
-            onChange={(e) =>
-              setFormData({ ...formData, title: e.target.value })
-            }
+            onChange={onChange}
           />
           <TextInput
             type='text'
             placeholder='about the city ex. the world leading distanition'
             required
-            id='title'
+            id='city'
             className=' border'
-            onChange={(e) =>
-              setFormData({ ...formData, title: e.target.value })
-            }
+            onChange={onChange}
           />
           <Select
-            onChange={(e) =>
-              setFormData({ ...formData, category: e.target.value })
-            }
+            onChange={onChange}
+            id='catogery'
           >
             <option value='uncategorized'>Package plane</option>
-            <option value='javascript'>Return</option>
-            <option value='reactjs'>One way</option>
-            <option value='nextjs'>Multi-city</option>
+            <option value='Return'>Return</option>
+            <option value='One way'>One way</option>
+            <option value='Multi-city'>Multi-city</option>
           </Select>
         </div>
 
@@ -109,14 +123,15 @@ export default function CreatePost() {
         <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>
           <FileInput
             type='file'
+            id='image'
             accept='image/*'
             onChange={(e) => setFile(e.target.files[0])}
           />
           <Button
             type='button'
-            gradientDuoTone='purpleToBlue'
+            className='bg-black text-white py-3 px-4'
             size='sm'
-            outline
+
             onClick={handleUpdloadImage}
             disabled={imageUploadProgress}
           >
@@ -143,23 +158,17 @@ export default function CreatePost() {
             className='w-full h-72 object-cover'
           />
         )}
-        <ReactQuill
-          theme='snow'
+        <textarea
           placeholder='Package discription...'
-          className='h-72 mb-12'
+          className='h-72 mb-12 border'
           required
-          onChange={(value) => {
-            setFormData({ ...formData, content: value });
-          }}
+          id='description'
+          onChange={onChange}
         />
-        <Button type='submit' gradientDuoTone='purpleToPink'>
+        <Button type='submit' disabled={loading} className='bg-black text-white py-3 px-4'>
           Publish
         </Button>
-        {publishError && (
-          <Alert className='mt-5' color='failure'>
-            {publishError}
-          </Alert>
-        )}
+
       </form>
     </div>
   );
