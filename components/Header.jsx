@@ -3,9 +3,9 @@ import Image from "next/image";
 export default function Header() {
   return (
 
-    <header className="flex justify-evenly max-sm:flex-col items-center absolute top-0 w-full z-10 bg-gradient-to-b from-black to-transparent">
+    <header className="flex justify-evenly max-sm:flex-col items-center absolute top-0 w-full z-10 ">
 
-      <Image width={300} height={300} className="max-sm:w-[50%] max-md:w-[200px]" src="/logo.png" alt="" />
+      <Image width={100} height={100} className="max-sm:w-[50%] max-md:w-[200px]" src="/logo.png" alt="" />
 
 
 

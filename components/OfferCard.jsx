@@ -12,7 +12,7 @@ export default function OfferCard({ card }) {
       <img src={card.image} className="hover:hidden aspect-square w-full rounded" alt="" />
       <div className="w-full px-3 pt-12 h-[40%] absolute bottom-0 bg-gradient-to-t from-black to-[#00000018] rounded-lg">
 
-        <h4 className="text-white text-[2rem]">{card.country}</h4>
+        <h4 className="text-white text-[2rem] text-right">{card.country}</h4>
         <div className="flex w-full justify-between mt-7">
           <p className="text-[#ffffffb6] text-[1.2rem]">23 May 2024 - 28 May 2024</p>
           <p className="text-[#ffffffb6] text-[1.2rem]">from ${card.price}</p>
@@ -22,3 +22,4 @@ export default function OfferCard({ card }) {
     </div>
   )
 }
+//#003b95 #032438

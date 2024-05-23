@@ -28,7 +28,6 @@ export default function CreatePost() {
     price: 0,
   });
   const router = useRouter();
-  console.log(formData);
 
   function onChange(e) {
     setFormData((prevState) => ({

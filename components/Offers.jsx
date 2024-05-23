@@ -7,7 +7,6 @@ import OfferCard from "./OfferCard";
 
 export default function Offers() {
   const [data, setData] = useState(null);
-  console.log(data);
 
   async function fetchListings() {
     try {
@@ -35,8 +34,8 @@ export default function Offers() {
   return (
     <section id="offers-section" className="w-full">
       <div className="w-[90%] mx-auto">
-        <h1 className="text-[3rem] my-12">Where to next ?</h1>
-
+        <h1 className="text-[3rem] mt-12">Where to next ?</h1>
+        <p className="mb-3">Enjoy a hassle-free journey with all the information you need to know before your trip</p>
 
         <div className="w-full flex gap-4 items-center justify-between flex-wrap max-sm:justify-center">
 
