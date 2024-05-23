@@ -1,89 +1,55 @@
+"use client"
+import { db } from "@/firebase";
+import { collection, getDocs } from "firebase/firestore";
 import Link from "next/link"
-import { BsArrowUpRight } from "react-icons/bs"
+import { useEffect, useState } from "react";
+import OfferCard from "./OfferCard";
 
 export default function Offers() {
+  const [data, setData] = useState(null);
+  console.log(data);
 
-  const cards = [
-    {
-      id: 1,
-      img: "1.png",
-      place: "Beirut",
-      price: "985",
-      text: "985",
+  async function fetchListings() {
+    try {
+      const listingRef = collection(db, "offers");
+      const docSnap = await getDocs(listingRef);
+      const offers = [];
 
-    },
-    {
-      id: 2,
-      img: '2.png',
-      place: "Maldive ",
-      price: "1815",
-      text: "4 nights and 5 days",
+      docSnap.forEach((doc) => {
+        return offers.push({
+          id: doc.id,
+          data: doc.data()
+        });
+      });
+      setData(offers);
+    } catch (error) {
+      console.log(error)
+    };
+  };
 
-    },
-    {
-      id: 3,
-      img: '3.png',
-      place: "Socotra",
-      price: "1054",
-      text: "for 6 nights 7 days",
+  useEffect(() => {
+    fetchListings()
+  }, []);
 
-    },
-    {
-      id: 4,
-      img: '4.png',
-      place: "Malaysia",
-      price: "1750",
-      text: "for 6 nights 7 days",
 
-    },
-    {
-      id: 5,
-      img: '5.png',
-      place: "Indonesia",
-      price: "1675",
-      text: "for 6 nights 7 days",
-
-    },
-    {
-      id: 6,
-      img: '6.png',
-      place: "Sharm El-Shaikh",
-      price: "1054",
-      text: "Tickets via Yemenia",
-
-    },
-
-  ]
-  // bg-[#f2f3fa]
   return (
     <section id="offers-section" className="w-full">
       <div className="w-[90%] mx-auto">
         <h1 className="text-[3rem] my-12">Where to next ?</h1>
+
+
         <div className="w-full flex gap-4 items-center justify-between flex-wrap max-sm:justify-center">
 
-          {cards.map((card) => (
-            <div id="card" key={card.id} className="group w-[400px] relative rounded-lg shadow-2xl">
-              <Link href={`/offers/${card.place}`}>
-                <div className="absolute flex items-center gap-2 w-full justify-center h-full hover:bg-[#00000071] z-20 transition-all cursor-pointer">
-                  <p className="text-white text-[1.4rem]  hidden group-hover:inline z-30">See all details</p>
-                  <BsArrowUpRight className="text-white text-[1.4rem] hidden group-hover:inline" />
-                </div>
-              </Link>
-              <img src={`/offers/${card.img}`} className="hover:hidden aspect-square w-full rounded" alt="" />
-              <div className="w-full px-3 pt-12 h-[40%] absolute bottom-0 bg-gradient-to-t from-black to-[#00000018] rounded-lg">
-
-                <h4 className="text-white text-[2rem]">{card.place}</h4>
-                <div className="flex w-full justify-between mt-7">
-                  <p className="text-[#ffffffb6] text-[1.2rem]">23 May 2024 - 28 May 2024</p>
-                  <p className="text-[#ffffffb6] text-[1.2rem]">from ${card.price}</p>
-                </div>
-              </div>
-
-            </div>
+          {data?.map((card) => (
+            <Link href={`/offer/${card.id}`}>
+              <OfferCard key={card.id} card={card.data} />
+            </Link>
           ))}
 
 
         </div>
+
+
       </div>
 
     </section>

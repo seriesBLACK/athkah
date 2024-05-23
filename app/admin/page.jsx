@@ -12,7 +12,7 @@ import { app, db } from '../../firebase';
 import { useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { useRouter } from 'next/navigation'
 
 export default function CreatePost() {
@@ -22,12 +22,13 @@ export default function CreatePost() {
   const [loading, setloading] = useState(null);
   const [formData, setFormData] = useState({
     country: '',
-    city: '',
+    about: '',
     catogery: '',
     description: '',
+    price: 0,
   });
   const router = useRouter();
-
+  console.log(formData);
 
   function onChange(e) {
     setFormData((prevState) => ({
@@ -71,7 +72,7 @@ export default function CreatePost() {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             setImageUploadProgress(null);
             setImageUploadError(null);
-            setFormData({ ...formData, image: downloadURL });
+            setFormData({ ...formData, image: downloadURL, timeStamp: serverTimestamp() });
           });
         }
       );
@@ -91,23 +92,24 @@ export default function CreatePost() {
     <div className='p-3 max-w-3xl mx-auto min-h-screen'>
       <h1 className='text-center text-3xl my-7 font-semibold'>Create new offer</h1>
       <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
-        <div className='flex flex-col gap-4 justify-between'>
-          <TextInput
+        <div className='flex flex-col items-center gap-4 justify-between'>
+          <input
             type='text'
             placeholder='Country or city name'
             required
             id='country'
-            className=' border'
+            className=' border px-3 py-5 w-full'
             onChange={onChange}
           />
-          <TextInput
+          <input
             type='text'
             placeholder='about the city ex. the world leading distanition'
             required
-            id='city'
-            className=' border'
+            id='about'
+            className=' border px-3 py-5 w-full'
             onChange={onChange}
           />
+          <input placeholder='price' type="number" onChange={onChange} id='price' className='border px-3 py-5 w-[200px] text-center' />
           <Select
             onChange={onChange}
             id='catogery'
