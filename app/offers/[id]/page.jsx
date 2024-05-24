@@ -18,7 +18,7 @@ export default async function OfferDetails({ params }) {
   }
   return (
 
-    <div id="overlay" className={`w-full h-screen ${josefin.className} relative bg-[url('/offers/details/bg.jpg')] bg-no-repeat bg-cover bg-center`}>
+    <div id="overlay" className={`w-full h-screen ${josefin.className} relative bg-[url('/offers/details/${docSnap.bg}.jpg')] bg-no-repeat bg-cover bg-center`}>
       <Link href={'/'}>
         <RiArrowGoBackFill className="absolute text-white top-3 left-3 w-[50px] h-[50px] m-5 p-3 z-10 rounded-full cursor-pointer bg-[#0000003f]" />
       </Link>
