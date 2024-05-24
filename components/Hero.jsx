@@ -1,6 +1,5 @@
 // "use client"
 // import { useState } from "react";
-import { FaArrowDown } from "react-icons/fa";
 
 
 export default function Hero() {
@@ -15,7 +14,7 @@ export default function Hero() {
 
       <div className="w-full h-[100vh] max-sm:flex-col flex items-center justify-center">
         <div className="z-10 w-[50%] max-sm:w-[100%] max-sm:mx-[1rem] max-sm:text-center ml-[4rem] mb-[3rem]">
-          <h2 className="text-[50px] max-sm:text-[32px] text-white font-sans mb-5 font-extrabold">Discover the world with us <span className="text-[#f88034]">...</span></h2>
+          <h2 className="text-[50px] max-sm:text-[32px] text-white mb-5 font-extrabold">Discover the world with us <span className="text-[#f88034]">...</span></h2>
         </div>
 
         <a href="#footer" className="z-10 absolute bottom-7 sm:hidden">

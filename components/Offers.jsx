@@ -40,7 +40,7 @@ export default function Offers() {
         <div className="w-full flex gap-4 items-center justify-between flex-wrap max-sm:justify-center">
 
           {data?.map((card) => (
-            <Link href={`/offer/${card.id}`}>
+            <Link key={card.price} href={`/offers/${card.id}`}>
               <OfferCard key={card.id} card={card.data} />
             </Link>
           ))}
