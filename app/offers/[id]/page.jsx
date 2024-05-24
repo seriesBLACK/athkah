@@ -9,6 +9,7 @@ import { doc, getDoc } from "firebase/firestore";
 export default async function OfferDetails({ params }) {
   const docRef = doc(db, "offers", params.id);
   let docSnap = await getDoc(docRef);
+  console.log('ff');
 
   if (docSnap.exists()) {
     docSnap = docSnap.data();
