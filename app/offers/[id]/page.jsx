@@ -2,6 +2,7 @@ import { MdFlightTakeoff, MdLocationPin } from "react-icons/md"
 
 
 export default function OfferDetails({ params }) {
+  console.log(params.id);
   return (
     <div className="w-full h-screen bg-[url('/offers/offers-details/maldiv.jpg')] brightness-50">
       <h1 className="text-center text-[2rem] font-semibold text-[#45371b]">Enjoy a hassle-free journey with all the information you need to know before your trip</h1>
