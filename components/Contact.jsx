@@ -1,9 +1,9 @@
 
 export default function Contact() {
   return (
-    <section className="w-full h-[100vh]">
-      <div className="w-[1162px] mx-auto rounded-[3rem] h-[400px] bg-[url('/services/contact.png')] bg-center bg-cover flex">
-        <div className="h-full w-[50%]"></div>
+    <section className="w-full mb-[5rem]">
+      <div className="w-[1162px] mx-auto rounded-[3rem] h-[400px] bg-[url('/services/contact.png')] max-sm:w-full max-sm:flex-col bg-center bg-cover flex">
+        <div className="h-full w-[50%] max-sm:hidden"></div>
         <div className="w-[42%] ml-10 h-full flex flex-col">
           <h4 className="text-[2rem] text-white mt-6">Never miss an offer</h4>
           <p className="text-white mb-6 ">Write your email to get updates on new offers</p>

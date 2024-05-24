@@ -9,6 +9,11 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #f2f3fa;
+
+}
+
 #overlay {
   border-image: linear-gradient(hsl(0 0 0 / 0.6), hsl(0 0 0 / 0.6)) fill 1;
 }
