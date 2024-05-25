@@ -3,7 +3,7 @@ import { FaRegAddressCard } from "react-icons/fa"
 import { RiHotelLine } from "react-icons/ri"
 export default function Services() {
   return (
-    <section id="services" className="h-[50vh] w-full">
+    <section id="services" className="h-[50vh] max-sm:h-auto w-full mb-5">
       <div className="w-[90%] mx-auto">
         <h1 className="text-[3rem] mt-12">Our Services</h1>
         <p className="mb-12">Enjoy online-exclusive benefits when you book directly with us</p>

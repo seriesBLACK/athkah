@@ -2,7 +2,7 @@ import { BsArrowUpRight } from "react-icons/bs";
 
 export default function OfferCard({ card }) {
   return (
-    <div id="card" className="group w-[400px] h-[370px] relative rounded-lg shadow-2xl">
+    <div id="card" className="group w-[400px] max-sm:w-full h-[370px] relative rounded-lg shadow-2xl">
 
       <div className="absolute flex items-center gap-2 w-full justify-center h-full hover:bg-[#00000071] z-20 transition-all cursor-pointer">
         <p className="text-white text-[1.4rem]  hidden group-hover:inline z-30">See all details</p>

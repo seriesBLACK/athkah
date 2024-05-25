@@ -32,8 +32,8 @@ export default function Offers() {
 
 
   return (
-    <section id="offers-section" className="w-full">
-      <div className="w-[90%] mx-auto">
+    <section id="offer" className="w-full">
+      <div className="w-[90%] max-sm:w-[95%] mx-auto">
         <h1 className="text-[3rem] mt-12">Where to next ?</h1>
         <p className="mb-3">Enjoy a hassle-free journey with all the information you need to know before your trip</p>
 
