@@ -1,7 +1,7 @@
 
 export default function Contact() {
   return (
-    <section className="w-full mb-[5rem]">
+    <section className="w-full mb-[5rem] max-ha:hidden">
       <div className="w-[1162px] mx-auto rounded-[3rem] h-[400px] bg-[url('/services/contact.png')] max-sm:w-full max-sm:flex-col bg-center bg-cover flex">
         <div className="h-full w-[50%] max-sm:hidden"></div>
         <div className="w-[42%] ml-10 h-full flex flex-col">
