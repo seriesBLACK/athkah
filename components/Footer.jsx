@@ -6,7 +6,7 @@ import { MdAlternateEmail, MdLocalPhone, MdLocationPin, MdOutlineLocalPhone } fr
 
 export default function Footer() {
   return (
-    <footer id="footer" className="absolut bottom-0 w-full bg-[#003b95] h-[30vh] max-sm:h-[auto] rounded-t-lg relative overflow-hidden">
+    <footer id="footer" className="w-full bg-[#003b95] h-[50vh] max-sm:h-[73vh] rounded-t-lg overflow-hidden flex flex-col justify-between items-center">
       <div className="grid grid-cols-3 max-sm:flex max-sm:flex-col max-sm:items-center">
         <div className="text-[#fff]">
           <h3 className="font-bold max-sm:text-center text-right text-[2rem] mt-5">مـن نحـن</h3>
@@ -24,12 +24,12 @@ export default function Footer() {
 
         <div className="text-[#fff] flex items-end gap-4 flex-col mt-5 mr-5 max-sm:text-center">
 
-          <div className="flex items-center gap-2 max-sm:">
+          <div className="flex items-center gap-2 max-sm:items-start">
             <p className="text-center font-semibold">صنعاء - تقاطع شارع الجزائر مع شارع الستين قرب معهد أكسيد للغات </p>
             <MdLocationPin className="w-[30px] h-[30px]" />
           </div>
 
-          <div className="flex items-center bg-re gap-2">
+          <div className="flex items-center gap-2 max-sm:items-start">
             <p className="font-semibold"> عدن - ساحل أبين مقابل منتجع كراون - أمام مطاعم القوزي </p>
             <MdLocationPin className="w-[30px] h-[30px]" />
           </div>
@@ -45,10 +45,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="h-[1px] w-[40%] max-sm:hidden bg-gray-400 mx-auto"></div>
 
 
-      <div className="w-full bg-[#003b95] flex items-end justify-center h-[50%] max-sm:h-[20%] absolute">
+      <div className="bg-transparent">
         <Link
           href='https://aw-portfolio-3-0.vercel.app/'
 
