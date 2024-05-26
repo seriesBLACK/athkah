@@ -8,7 +8,7 @@ export default function Hero() {
 
       <div className="w-full h-[100vh] max-sm:h-[70vh] max-sm:flex-col flex items-center justify-center">
         <div className="z-10 w-[50%] max-sm:w-[100%] max-sm:mx-[1rem] max-sm:text-center ml-[4rem] mb-[3rem]">
-          <h2 className="text-[50px] max-sm:text-[32px] max-sm:text-left text-white mb-5 font-extrabold">Discover the world with us <span className="text-[#f88034]">...</span></h2>
+          <h2 className="text-[50px] max-sm:text-[35px] max-sm:text-center max-sm:mt-[5rem] text-white mb-5 font-extrabold">Discover the world with us <span className="text-[#f88034]">...</span></h2>
         </div>
 
         <a href="#footer" className="hidden">

@@ -13,7 +13,7 @@ export default function OfferCard({ card }) {
       <div className="w-full px-3 pt-12 h-[50%] absolute bottom-0 bg-gradient-to-t from-black to-[#00000000] rounded-lg">
 
         <h4 className="text-white text-[2rem] text-right">{card.country}</h4>
-        <div className="flex w-full justify-between mt-7">
+        <div className="flex w-full max-sm:flex-col justify-between mt-7">
           <p className="text-[#ffffffb6] text-[1.2rem]">23 May 2024 - 28 May 2024</p>
           <p className="text-[#ffffffb6] text-[1.2rem]">from ${card.price}</p>
         </div>
