@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
-import { MdAlternateEmail, MdLocalPhone, MdLocationPin, MdOutlineLocalPhone } from "react-icons/md";
+import { MdAlternateEmail, MdLocationPin, MdOutlineLocalPhone } from "react-icons/md";
 
 
 

@@ -1,34 +1,20 @@
-"use client"
 import { db } from "@/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import Link from "next/link"
-import { useEffect, useState } from "react";
 import OfferCard from "./OfferCard";
 
-export default function Offers() {
-  const [data, setData] = useState(null);
+export default async function Offers() {
 
-  async function fetchListings() {
-    try {
-      const listingRef = collection(db, "offers");
-      const docSnap = await getDocs(listingRef);
-      const offers = [];
+  const listingRef = collection(db, "offers");
+  const docSnap = await getDocs(listingRef);
+  const data = [];
 
-      docSnap.forEach((doc) => {
-        return offers.push({
-          id: doc.id,
-          data: doc.data()
-        });
-      });
-      setData(offers);
-    } catch (error) {
-      console.log(error)
-    };
-  };
-
-  useEffect(() => {
-    fetchListings()
-  }, []);
+  docSnap.forEach((doc) => {
+    return data.push({
+      id: doc.id,
+      data: doc.data()
+    });
+  });
 
 
   return (
@@ -40,7 +26,7 @@ export default function Offers() {
         <div className="w-full flex gap-4 items-center justify-between flex-wrap max-sm:justify-center">
 
           {data?.map((card) => (
-            <Link key={card.price} href={`/offers/${card.id}`}>
+            <Link key={card.id} href={`/offers/${card.id}`}>
               <OfferCard key={card.id} card={card.data} />
             </Link>
           ))}

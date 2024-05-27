@@ -1,6 +1,6 @@
 "use client"
 
-import { Alert, Button, FileInput, Select, TextInput } from 'flowbite-react';
+import { Alert, Button, FileInput, Select } from 'flowbite-react';
 import 'react-quill/dist/quill.snow.css';
 import {
   getDownloadURL,
@@ -9,11 +9,14 @@ import {
   uploadBytesResumable,
 } from 'firebase/storage';
 import { app, db } from '../../firebase';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import { useRouter } from 'next/navigation'
+import { addDoc, collection, getDocs, serverTimestamp } from 'firebase/firestore';
+import OfferCard from '@/components/OfferCard';
+
+
+
 
 export default function CreatePost() {
   const [file, setFile] = useState(null)
@@ -27,7 +30,9 @@ export default function CreatePost() {
     description: '',
     price: 0,
   });
-  const router = useRouter();
+  const [data, setData] = useState(null);
+
+
 
   function onChange(e) {
     setFormData((prevState) => ({
@@ -42,7 +47,7 @@ export default function CreatePost() {
     setloading(true);
     await addDoc(collection(db, "offers"), formData);
     setloading(false);
-    router.push('/')
+
   };
 
   const handleUpdloadImage = async () => {
@@ -83,14 +88,30 @@ export default function CreatePost() {
   };
 
 
+  async function getOffers() {
+    const listingRef = collection(db, "offers");
+    const docSnap = await getDocs(listingRef);
+    const data = [];
+
+    docSnap.forEach((doc) => {
+      return data.push({
+        id: doc.id,
+        data: doc.data()
+      });
+    });
+    setData(data)
+  }
 
 
+  useEffect(() => {
+    getOffers()
+  }, [])
 
 
   return (
-    <div className='p-3 max-w-3xl mx-auto min-h-screen'>
+    <div className='p-3 min-w-3xl mx-auto min-h-screen'>
       <h1 className='text-center text-3xl my-7 font-semibold'>Create new offer</h1>
-      <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
+      <form className='flex flex-col gap-4 max-w-3xl mx-auto' onSubmit={handleSubmit}>
         <div className='flex flex-col items-center gap-4 justify-between'>
           <input
             type='text'
@@ -171,6 +192,15 @@ export default function CreatePost() {
         </Button>
 
       </form>
+
+      <h1 className='text-[3rem] mt-12'>Delete or edit offers</h1>
+      <div className='w-full flex gap-4 items-center justify-between flex-wrap max-sm:justify-center'>
+        {data?.map((card) => (
+
+          <OfferCard key={card.id} card={card.data} />
+
+        ))}
+      </div>
     </div>
   );
 }
