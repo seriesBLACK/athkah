@@ -12,8 +12,9 @@ import { app, db } from '../../firebase';
 import { useEffect, useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { addDoc, collection, getDocs, serverTimestamp } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDocs, serverTimestamp } from 'firebase/firestore';
 import OfferCard from '@/components/OfferCard';
+import { FaRegEdit, FaRegTrashAlt } from 'react-icons/fa';
 
 
 
@@ -105,7 +106,22 @@ export default function CreatePost() {
 
   useEffect(() => {
     getOffers()
-  }, [])
+  }, [data]);
+
+
+  async function onDelete(cardId) {
+    if (window.confirm("Are you sure you want to delete the offer?")) {
+      await deleteDoc(doc(db, "offers", cardId))
+      const updatedOffers = data.filter(
+        (data) => data.id !== cardId
+      );
+      setData(updatedOffers);
+
+    } else {
+      console.log('an error has ouccerd');
+    }
+
+  }
 
 
   return (
@@ -196,8 +212,14 @@ export default function CreatePost() {
       <h1 className='text-[3rem] mt-12'>Delete or edit offers</h1>
       <div className='w-full flex gap-4 items-center justify-between flex-wrap max-sm:justify-center'>
         {data?.map((card) => (
+          <div>
+            <OfferCard key={card.id} card={card.data} />
+            <div className='flex w-full justify-between'>
+              <FaRegTrashAlt onClick={() => onDelete(card.id)} className='text-red-500 text-[2rem] cursor-pointer' />
+              <FaRegEdit className='text-blue-500 text-[2rem] cursor-pointer' />
+            </div>
+          </div>
 
-          <OfferCard key={card.id} card={card.data} />
 
         ))}
       </div>
