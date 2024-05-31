@@ -120,10 +120,10 @@ export default function CreatePost() {
             onChange={onChange}
             id='catogery'
           >
-            <option value='uncategorized'>Package plane</option>
-            <option value='Return'>Return</option>
-            <option value='One way'>One way</option>
-            <option value='Multi-city'>Multi-city</option>
+            <option key={1} value='uncategorized'>Package plane</option>
+            <option key={2} value='Return'>Return</option>
+            <option key={3} value='One way'>One way</option>
+            <option key={4} value='Multi-city'>Multi-city</option>
           </Select>
         </div>
 
@@ -174,7 +174,7 @@ export default function CreatePost() {
           onChange={onChange}
         />
         <Button type='submit' disabled={loading} className='bg-black text-white py-3 px-4'>
-          Update
+          Create Offer
         </Button>
 
       </form>

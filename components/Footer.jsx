@@ -52,7 +52,7 @@ export default function Footer() {
           href='https://aw-portfolio-3-0.vercel.app/'
 
         >
-          <p className="text-white font-thin">Design & developed by <span className="underline font-thin bg-black rounded-full px-1">AW</span></p>
+          <p className="text-white font-thin">&copy; 2024 Design & developed by <span className="underline font-thin bg-black rounded-full px-1">AW</span></p>
 
         </Link>
       </div>

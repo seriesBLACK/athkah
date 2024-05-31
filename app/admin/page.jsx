@@ -1,7 +1,6 @@
 "use client"
 
 import 'react-quill/dist/quill.snow.css';
-
 import { db } from '../../firebase';
 import { useEffect, useState } from 'react';
 import 'react-circular-progressbar/dist/styles.css';
@@ -15,6 +14,9 @@ import { Button } from 'flowbite-react';
 
 
 export default function CreatePost() {
+
+
+
 
   const [data, setData] = useState(null);
 

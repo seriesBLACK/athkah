@@ -12,7 +12,7 @@ import {
 import { useEffect, useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { addDoc, collection, doc, getDoc, updateDoc } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { db, app } from '@/firebase';
 
 export default function page({ params }) {
