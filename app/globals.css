@@ -32,3 +32,24 @@ body {
     padding: 0 0.4rem;
   }
 }
+
+.contact-container {
+  display: flex;
+  width: 75%;
+  margin: 0 auto;
+  border-radius: 20px;
+  height: 400px;
+  background-image: url('/services/contact.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
+@media (max-width:480px) {
+  .contact-container {
+    background-image: url('/services/Background_Mobile.png');
+    width: 90%;
+    height: 450px;
+    align-items: end;
+  }
+}
