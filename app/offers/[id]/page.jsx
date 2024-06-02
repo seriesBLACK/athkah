@@ -59,7 +59,7 @@ export default async function OfferDetails({ params }) {
           <span className="font-bold">:يتضمن البرنامج</span> <br />
           <MultiLineText text={text} />
         </div>
-        <p className="text-white font-bold my-3">${docSnap.price}</p>
+        <p className="text-white font-bold my-3">${docSnap.price} للشخص الواحد</p>
         <button className="bg-[#003b95] text-cyan-50 py-3 w-[30%] max-sm:w-[80%] rounded-lg font-bold mt-5 max-sm:mx-auto">أحجز الآن</button>
       </div>
     </div>

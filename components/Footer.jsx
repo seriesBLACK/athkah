@@ -18,7 +18,18 @@ export default function Footer() {
         <div className="text-white text-center flex flex-col mt-5 font-mono font-semibold max-sm:my-5 max-sm:border-t max-sm:border-b max-sm:py-5 max-sm:w-full">
           <p>let&apos;s stay connected</p>
           <div className="flex gap-2 text-[2rem] mx-auto mt-5">
-            <FaFacebook /> <FaInstagram /> <FaWhatsapp />
+            <Link className="cursor-pointer" href={'https://www.facebook.com/Athkaholidays'}>
+
+              <FaFacebook />
+            </Link>
+            <Link className="cursor-pointer" href={'https://www.instagram.com/athkaholidays?igsh=MW9hZXF3N3M1eGV6Mg=='}>
+
+              <FaInstagram />
+            </Link>
+            <Link className="cursor-pointer" href={'https://whatsapp.com/channel/0029Va91Iu85Ejy6IpcAZF0k'}>
+
+              <FaWhatsapp />
+            </Link>
           </div>
         </div>
 

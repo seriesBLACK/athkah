@@ -19,7 +19,7 @@ export default function Header() {
 
 
       <a href="#footer" className="max-ha:hidden">
-        <button className="bg-[#fff] py-3 px-8 rounded-lg text-black font-bold max-md:text-[1rem]">Contact us</button>
+        <button className="bg-[#ffa903] py-3 px-8 rounded-lg text-black font-bold max-md:text-[1rem]">Contact us</button>
       </a>
 
     </header>
