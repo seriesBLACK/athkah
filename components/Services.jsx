@@ -25,7 +25,7 @@ export default function Services() {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <RiHotelLine className="w-[100px] h-[100px]" />
+            <RiHotelLine className="w-[120px] h-[120px]" />
             <div>
               <h2 className="font-bold text-[1.2rem]">Book your hotel:</h2>
               <p>Any where in the world you can get all your essantials</p>
