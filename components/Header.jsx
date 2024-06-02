@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -18,9 +19,10 @@ export default function Header() {
 
 
 
-      <a href="#footer" className="max-ha:hidden">
-        <button className="bg-[#ffa903] py-3 px-8 rounded-lg text-black font-bold max-md:text-[1rem]">Contact us</button>
-      </a>
+      <Link href={"#footer"} className="py-4 px-9 bg-[#ffa903] cursor-pointer rounded-lg text-black font-bold max-md:text-[1rem] max-ha:hidden">
+        Contact us
+      </Link>
+
 
     </header>
 

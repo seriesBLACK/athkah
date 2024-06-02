@@ -11,11 +11,7 @@ export default function Hero() {
           <h2 className="text-[50px] max-sm:text-[35px] max-sm:text-center max-sm:mt-[5rem] text-white mb-5 font-extrabold">Discover the world with us <span className="text-[#f88034]">...</span></h2>
         </div>
 
-        <a href="#footer" className="hidden">
-          <button className="bg-[#f88034] py-3 px-12 rounded-lg text-white font-bold max-md:text-[1rem]">Contact us</button>
-        </a>
-
-        <div className="z-10 w-[40%] max-sm:hidden">
+        <div className="w-[40%] max-sm:hidden">
           <img src="/airplane.png" alt="" />
         </div>
 
